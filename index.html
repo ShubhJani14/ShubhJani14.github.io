@@ -1,42 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Personal Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shubh Jani</title>
+    <style>
+        :root {
+            --bg: #f5f5f7;
+            --text: #1d1d1f;
+            --text-light: #86868b;
+            --accent: #0066cc;
+            --card-bg: #ffffff;
+        }
+        
+        @font-face {
+            font-family: 'SF Pro';
+            src: url('https://sf-pro-display.fonts.googleapis.com/fonts/sf-pro-display?family=SF+Pro+Display:400,500,600') format('woff2');
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        body {
+            font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.5;
+        }
+        
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        a:hover {
+            opacity: 0.8;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        header {
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 80px;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+        }
+        
+        .subtitle {
+            font-size: 24px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        section {
+            padding: 120px 0;
+            border-top: 1px solid #d2d2d7;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 40px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        
+        .section-subtitle {
+            font-size: 21px;
+            color: var(--text-light);
+            max-width: 500px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 18px;
+            padding: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .card-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .card-meta {
+            color: var(--text-light);
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+        
+        .card-desc {
+            font-size: 19px;
+            line-height: 1.5;
+        }
+        
+        footer {
+            padding: 80px 0;
+            text-align: center;
+            border-top: 1px solid #d2d2d7;
+        }
+        
+        .footer-text {
+            font-size: 17px;
+            color: var(--text-light);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            h1 {
+                font-size: 48px;
+            }
+            
+            .subtitle {
+                font-size: 19px;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .section-subtitle {
+                font-size: 19px;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .card {
+                padding: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Your Name</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>Shubh Jani</h1>
+            <p class="subtitle">AI researcher and developer working at the intersection of machine learning and social impact</p>
+        </div>
     </header>
     
-    <main>
-        <section id="intro">
-            <h2>Welcome to My Website</h2>
-            <p>This is where you can introduce yourself.</p>
-        </section>
-        
-        <section id="skills">
-            <h2>My Skills</h2>
-            <ul>
-                <li>HTML/CSS</li>
-                <li>Web Design</li>
-                <li>Other skills...</li>
-            </ul>
-        </section>
-    </main>
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About</h2>
+                <p class="section-subtitle">Focused on building systems that expand access to education and healthcare through technology</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3 class="card-title">Background</h3>
+                    <p class="card-desc">
+                        High school researcher specializing in AI and data science applications. 
+                        Fluent in English, Hindi, Gujarati with working proficiency in Spanish and Sanskrit.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Approach</h3>
+                    <p class="card-desc">
+                        I combine technical rigor with human-centered design to create solutions that address 
+                        real-world inequities in education and healthcare access.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Currently</h3>
+                    <p class="card-desc">
+                        Working on Braille recognition systems for literacy education and optimizing 
+                        neural network efficiency through novel architectural approaches.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Projects</h2>
+                <p class="section-subtitle">Selected engineering and product development work</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3 class="card-title">QwenVL-Braille</h3>
+                    <p class="card-meta">Vision Language Model for Braille Recognition</p>
+                    <p class="card-desc">
+                        Developed transformer models for low-resource Braille transcription to improve 
+                        literacy education accessibility.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">ItsClean</h3>
+                    <p class="card-meta">Public Sanitation Rating System</p>
+                    <p class="card-desc">
+                        Global application to rate and review public bathroom cleanliness using NodeJS, 
+                        React, and PostgreSQL.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Fairify</h3>
+                    <p class="card-meta">Bias Detection Platform</p>
+                    <p class="card-desc">
+                        Developed ethical AI system to recognize bias in datasets, winner of NYAS 
+                        Ethical AI competition.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Aarogya Vardaan</h3>
+                    <p class="card-meta">Healthcare Access Platform</p>
+                    <p class="card-desc">
+                        ML portal providing insurance recommendations via NLP chatbot in 6 languages, 
+                        presented at UN Headquarters.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="research">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Research</h2>
+                <p class="section-subtitle">Academic and applied machine learning investigations</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3 class="card-title">Neural Network Optimization</h3>
+                    <p class="card-meta">Alameda County Science Fair · 4th Place</p>
+                    <p class="card-desc">
+                        Investigated energy efficiency improvements through hyperthreading, sparse 
+                        compression, and architectural optimizations.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Physics in Cosmology</h3>
+                    <p class="card-meta">Lawrence Berkeley National Lab</p>
+                    <p class="card-desc">
+                        Studied dark matter research at LUX ZEPLIN and ML applications for particle 
+                        accelerator optimization.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Dynamic Inventory Management</h3>
+                    <p class="card-meta">IIM Mumbai CaseQuest · 4th Place</p>
+                    <p class="card-desc">
+                        Developed business solution for distribution network optimization using 
+                        time-series forecasting models.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <footer>
-        <p>&copy; 2023 Your Name. All rights reserved.</p>
+        <div class="container">
+            <p class="footer-text">© 2024 Shubh Jani</p>
+            <p class="footer-text">shubhjani14@gmail.com · (925) 226-6243</p>
+        </div>
     </footer>
 </body>
 </html>

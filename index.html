@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Shubh Jani</title>
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         :root {
             --bg: #f5f5f7;
@@ -106,6 +106,10 @@
             position: relative;
         }
         
+        .card.has-gallery {
+            padding-bottom: 60px;
+        }
+        
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -135,16 +139,18 @@
             gap: 8px;
         }
         
-        .card-meta img {
-            width: 20px;
-            height: 20px;
-            object-fit: contain;
-        }
-        
         .card-desc {
             font-size: 19px;
             line-height: 1.5;
             margin-bottom: 20px;
+        }
+        
+        .card-desc ul {
+            padding-left: 20px;
+        }
+        
+        .card-desc li {
+            margin-bottom: 8px;
         }
         
         .card-image {
@@ -152,6 +158,20 @@
             border-radius: 12px;
             margin-bottom: 20px;
             height: 200px;
+            object-fit: cover;
+        }
+        
+        .card-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .card-gallery img {
+            width: 100%;
+            border-radius: 8px;
+            height: 120px;
             object-fit: cover;
         }
         
@@ -165,12 +185,7 @@
             font-size: 15px;
             display: flex;
             align-items: center;
-            gap: 5px;
-        }
-        
-        .card-link img {
-            width: 16px;
-            height: 16px;
+            gap: 8px;
         }
         
         footer {
@@ -256,6 +271,10 @@
                 width: 100%;
                 height: 300px;
             }
+            
+            .card-gallery {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -276,13 +295,16 @@
             
             <div class="about-content">
                 <div class="about-text">
-                    <p>I'm a high school senior passionate about leveraging artificial intelligence and data science to solve pressing challenges in education accessibility and healthcare equity.</p>
+                    <p>I'm a high school senior passionate about leveraging AI and data science to solve pressing challenges in:</p>
+                    <ul>
+                        <li>Education accessibility</li>
+                        <li>Healthcare equity</li>
+                        <li>Ethical technology development</li>
+                    </ul>
                     
-                    <p>My work spans machine learning research, full-stack development, and social entrepreneurship. I've had the privilege to present at the United Nations, conduct research at national labs, and lead multiple initiatives that have impacted thousands of people.</p>
+                    <p>My work spans machine learning research, full-stack development, and social entrepreneurship with presentations at the UN and research at national labs.</p>
                     
-                    <p>Beyond technical work, I'm deeply involved in leadership roles including as Secretary of the Amador Valley Space and Astronomy Club, Treasurer of the Entrepreneurship Club, and Co-Founder of ItsClean - a public sanitation rating platform.</p>
-                    
-                    <p>I'm fluent in English, Hindi, and Gujarati with working proficiency in Spanish and Sanskrit, which helps me design solutions for diverse communities.</p>
+                    <p>Leadership roles include Secretary of Space/Astronomy Club, Treasurer of Entrepreneurship Club, and Co-Founder of ItsClean sanitation platform.</p>
                 </div>
                 <img src="shubh.jpg" alt="Shubh Jani" class="about-image">
             </div>
@@ -290,23 +312,36 @@
             <div class="grid">
                 <div class="card">
                     <h3 class="card-title">Technical Skills</h3>
-                    <p class="card-desc">
-                        Transformers, Diffusion Models, CNNs, Reinforcement Learning, Python (NumPy, Pandas), Time Series Analysis, Node.js, React, REST APIs, PostgreSQL, AWS, Fusion 360, PCB Design
-                    </p>
+                    <div class="card-desc">
+                        <ul>
+                            <li>Transformers & Diffusion Models</li>
+                            <li>Python (NumPy, Pandas)</li>
+                            <li>Node.js, React, PostgreSQL</li>
+                            <li>AWS, Fusion 360, PCB Design</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="card">
                     <h3 class="card-title">Research Focus</h3>
-                    <p class="card-desc">
-                        Low-resource ML applications, neural network optimization, vision-language models, ethical AI, and their applications in education and healthcare accessibility.
-                    </p>
+                    <div class="card-desc">
+                        <ul>
+                            <li>Low-resource ML applications</li>
+                            <li>Neural network optimization</li>
+                            <li>Vision-language models</li>
+                            <li>Ethical AI development</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="card">
                     <h3 class="card-title">Education</h3>
-                    <p class="card-desc">
-                        Amador Valley High School (2022-2026)<br>
-                        GPA: 3.98, SAT: 1550<br>
-                        Coursework: Multivariable Calculus, AP Physics C, AP Chemistry, AP Calculus BC
-                    </p>
+                    <div class="card-desc">
+                        <ul>
+                            <li>Amador Valley High School (2022-2026)</li>
+                            <li>GPA: 3.98 | SAT: 1550</li>
+                            <li>Multivariable Calculus, AP Physics C</li>
+                            <li>AP Chemistry, AP Calculus BC</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -319,20 +354,26 @@
                 <p class="section-subtitle">Academic research and professional experiences in AI and data science</p>
             </div>
             <div class="grid">
-                <div class="card">
-                    <img src="berk.HEIC" alt="At Berkeley Labs" class="card-image">
+                <div class="card has-gallery">
+                    <img src="berk-logo.png" alt="At Berkeley Labs" class="card-image">
                     <h3 class="card-title">
                         <img src="berk-logo.png" alt="Berkeley Logo">
                         Berkeley EINR Internship
                     </h3>
-                    <p class="card-desc">
-                        Developed multivariate models to optimize network usage in regional data caches at Berkeley's Energy and Infrastructure Research group. Conducted time series analysis of network utilization patterns.
-                    </p>
+                    <div class="card-desc">
+                        <ul>
+                            <li>Developed multivariate models for network optimization</li>
+                            <li>Analyzed regional data cache utilization patterns</li>
+                            <li>Conducted time series analysis of network traffic</li>
+                        </ul>
+                    </div>
+                    <div class="card-gallery">
+                        <img src="berk.HEIC" alt="Berkeley Lab">
+                    </div>
                     <div class="card-links">
                         <a href="#" class="card-link">
-                            <i class="fa-solid fa-file">
+                            <i class="fas fa-file"></i>
                             Research Paper
-                            </i>
                         </a>
                     </div>
                 </div>
@@ -343,19 +384,21 @@
                         <img src="opennlp.jpeg" alt="OpenNLP Logo">
                         OpenNLP Labs Internship
                     </h3>
-                    <p class="card-desc">
-                        Developed QwenVL-Braille, a vision-language model for low-resource Braille recognition. Created personalized AI agent to teach Braille using transformer and diffusion models. Published research paper on the approach.
-                    </p>
+                    <div class="card-desc">
+                        <ul>
+                            <li>Developed QwenVL-Braille vision-language model</li>
+                            <li>Created AI agent for Braille education</li>
+                            <li>Published research on low-resource recognition</li>
+                        </ul>
+                    </div>
                     <div class="card-links">
                         <a href="https://opennlplabs.org" class="card-link">
-                           <i class="fa-solid fa-link">
+                            <i class="fas fa-link"></i>
                             OpenNLP Labs
-                            </i>
                         </a>
                         <a href="#" class="card-link">
-                           <i class="fa-solid fa-file">
+                            <i class="fas fa-file"></i>
                             Research Paper
-                            </i>
                         </a>
                     </div>
                 </div>
@@ -366,14 +409,17 @@
                         <img src="IEEE.png" alt="IEEE Logo">
                         Neural Network Optimization
                     </h3>
-                    <p class="card-desc">
-                        Research on optimizing neural network efficiency through hyperthreading, sparse compression, and architectural optimizations. Awarded 4th place at Alameda County Science Fair.
-                    </p>
+                    <div class="card-desc">
+                        <ul>
+                            <li>Optimized efficiency through hyperthreading</li>
+                            <li>Implemented sparse compression techniques</li>
+                            <li>4th place at Alameda County Science Fair</li>
+                        </ul>
+                    </div>
                     <div class="card-links">
                         <a href="#" class="card-link">
-                          <i class="fa-solid fa-file">
+                            <i class="fas fa-file"></i>
                             Research Paper
-                            </i>
                         </a>
                     </div>
                 </div>
@@ -384,15 +430,18 @@
                         <img src="IIMMumbai.jpeg" alt="IIM Mumbai Logo">
                         IIM Mumbai Internship
                     </h3>
-                    <p class="card-desc">
-                        Data science internship with Prof. Poonam Singh. Analyzed financial data to optimize stock returns using statistical methods in Python (NumPy, Pandas). Developed time-series forecasting models.
-                    </p>
+                    <div class="card-desc">
+                        <ul>
+                            <li>Analyzed financial data with Python</li>
+                            <li>Optimized stock returns using statistics</li>
+                            <li>Developed time-series forecasting models</li>
+                        </ul>
+                    </div>
                     <div class="card-links">
                         <a href="https://iimmumbai.ac.in/faculty/profile/61" class="card-link">
-                           <i class="fa-solid fa-link">
+                            <i class="fas fa-link"></i>
                             IIM Mumbai
-                            </i>
-                         </a>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -406,20 +455,28 @@
                 <p class="section-subtitle">Social impact initiatives and technical projects</p>
             </div>
             <div class="grid">
-                <div class="card">
+                <div class="card has-gallery">
                     <img src="AarogyaVardaan.HEIC" alt="Aarogya Vardaan" class="card-image">
                     <h3 class="card-title">
                         <img src="Aarogya Vardaan Final.png" alt="Aarogya Vardaan Logo">
                         Aarogya Vardaan
                     </h3>
-                    <p class="card-desc">
-                        ML portal providing insurance recommendations via NLP chatbot in 6 languages. Presented at UN Headquarters. Provided free health insurance to 50+ underprivileged individuals through $2,000 crowdfunding.
-                    </p>
+                    <div class="card-desc">
+                        <ul>
+                            <li>ML portal with NLP chatbot (6 languages)</li>
+                            <li>Presented at UN Headquarters</li>
+                            <li>Provided free insurance to 50+ individuals</li>
+                            <li>$2,000 crowdfunded</li>
+                        </ul>
+                    </div>
+                    <div class="card-gallery">
+                        <img src="av.HEIC" alt="Aarogya Vardaan">
+                        <img src="av2.jpeg" alt="Awareness Session">
+                    </div>
                     <div class="card-links">
                         <a href="https://aarogyavardaan.com" class="card-link">
-                            <i class="fa-solid fa-file">
-                           Aarogya Vardaan Portal
-                            </i>
+                            <i class="fas fa-link"></i>
+                            Aarogya Vardaan Portal
                         </a>
                     </div>
                 </div>
@@ -430,32 +487,42 @@
                         <img src="ItsClean.png" alt="ItsClean Logo">
                         ItsClean
                     </h3>
-                    <p class="card-desc">
-                        Global application to rate and review public bathroom cleanliness using NodeJS, React, PostgreSQL, and AWS. Implemented Google Maps API and image processing with Pillow. Launched in 4 cities.
-                    </p>
+                    <div class="card-desc">
+                        <ul>
+                            <li>Global bathroom rating platform</li>
+                            <li>Built with NodeJS, React, PostgreSQL</li>
+                            <li>Implemented Google Maps API</li>
+                            <li>Launched in 4 cities</li>
+                        </ul>
+                    </div>
                     <div class="card-links">
                         <a href="https://itsclean4u.com" class="card-link">
-                             <i class="fa-solid fa-file">
-                           ItsClean Portal
-                            </i>
+                            <i class="fas fa-link"></i>
+                            ItsClean Portal
                         </a>
                     </div>
                 </div>
                 
-                <div class="card">
-                    <img src="nyas.png" alt="NYAS Fairify" class="card-image">
+                <div class="card has-gallery">
+                    <img src="nyas-logo.png" alt="NYAS Fairify" class="card-image">
                     <h3 class="card-title">
                         <img src="nyas-logo.png" alt="NYAS Logo">
-                        Fairify - New York Academy of Sciences
+                        Fairify - NYAS
                     </h3>
-                    <p class="card-desc">
-                        Developed Fairify app to recognize bias in datasets using SQLite and REST APIs. Won Ethical AI competition at New York Academy of Sciences. Focused on reducing bias in machine learning models.
-                    </p>
+                    <div class="card-desc">
+                        <ul>
+                            <li>Bias detection in datasets</li>
+                            <li>SQLite and REST API implementation</li>
+                            <li>Won NYAS Ethical AI competition</li>
+                        </ul>
+                    </div>
+                    <div class="card-gallery">
+                        <img src="nyas.png" alt="NYAS Competition">
+                    </div>
                     <div class="card-links">
                         <a href="https://www.nyas.org/ideas-insights/blog/fairify-reducing-bias-in-ai-models/" class="card-link">
-                            <i class="fa-solid fa-file">
-                           NYAS Winners Page
-                            </i>
+                            <i class="fas fa-link"></i>
+                            NYAS Winners Page
                         </a>
                     </div>
                 </div>
@@ -466,14 +533,18 @@
                         <img src="Celeritas.png" alt="Celeritas Logo">
                         Celeritas Research Labs
                     </h3>
-                    <p class="card-desc">
-                        As VP of Engineering, lead software projects for telemetry dataset development and RL model optimization. Developed model prosthetic hand using Onshape. Working on custom API development.
-                    </p>
+                    <div class="card-desc">
+                        <ul>
+                            <li>VP of Engineering</li>
+                            <li>Telemetry dataset development</li>
+                            <li>RL model optimization</li>
+                            <li>Prosthetic hand prototype</li>
+                        </ul>
+                    </div>
                     <div class="card-links">
                         <a href="https://celeritasresearch.org" class="card-link">
-                            <i class="fa-solid fa-file">
-                           Website
-                            </i>
+                            <i class="fas fa-link"></i>
+                            Website
                         </a>
                     </div>
                 </div>
@@ -486,9 +557,9 @@
             <p class="footer-text">© 2025 Shubh Jani</p>
             <p class="footer-text">shubhjani14@gmail.com · (925) 226-6243</p>
             <p class="footer-text">
-                <a href="https://github.com/shubhjani" style="color: var(--text-light);">GitHub</a> · 
-                <a href="https://linkedin.com/in/shubhjani" style="color: var(--text-light);">LinkedIn</a> · 
-                <a href="#" style="color: var(--text-light);">Resume</a>
+                <a href="https://github.com/shubhjani" style="color: var(--text-light);"><i class="fab fa-github"></i> GitHub</a> · 
+                <a href="https://linkedin.com/in/shubhjani" style="color: var(--text-light);"><i class="fab fa-linkedin"></i> LinkedIn</a> · 
+                <a href="#" style="color: var(--text-light);"><i class="fas fa-file-pdf"></i> Resume</a>
             </p>
         </div>
     </footer>

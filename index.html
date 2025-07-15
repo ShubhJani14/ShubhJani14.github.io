@@ -105,6 +105,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             cursor: pointer;
+            color: var(--text);
         }
         
         .card.has-gallery {
@@ -123,6 +124,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            color: var(--text);
         }
         
         .card-title img {
@@ -149,6 +151,7 @@
             font-size: 19px;
             line-height: 1.5;
             margin-bottom: 20px;
+            color: var(--text);
         }
         
         .card-desc ul {
@@ -157,6 +160,12 @@
         
         .card-desc li {
             margin-bottom: 8px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        
+        .card-desc li:hover {
+            color: var(--accent);
         }
         
         .card-image {
@@ -233,12 +242,13 @@
         
         .impact-details {
             display: none;
-            padding: 20px;
+            padding: 15px;
             background-color: #f8f8fa;
             border-radius: 12px;
-            margin-top: 15px;
+            margin-top: 10px;
             font-size: 17px;
-            line-height: 1.6;
+            line-height: 1.5;
+            color: var(--text);
         }
         
         .impact-details.show {
@@ -247,11 +257,13 @@
         
         .sdg-badge {
             font-size: 13px;
-            background-color: #e8f4fd;
-            color: var(--accent);
+            background-color: #f0f0f5;
+            color: var(--text);
             padding: 4px 8px;
             border-radius: 4px;
-            margin-right: 6px;
+            display: inline-block;
+            margin-top: 10px;
+            border: 1px solid #e0e0e7;
         }
         
         @media (max-width: 1024px) {
@@ -347,34 +359,60 @@
             </div>
             
             <div class="grid">
-                <div class="card" onclick="toggleImpact('technical-impact')">
+                <div class="card">
                     <h3 class="card-title">Technical Skills</h3>
                     <div class="card-desc">
                         <ul>
-                            <li>Transformers & Diffusion Models</li>
-                            <li>LSTM in RNNS, Reinforcement Learning</li>
-                            <li>Node.js, React, PostgreSQL</li>
-                            <li>AWS, OnShape, PCB Design</li>
+                            <li onclick="showImpact('transformers-impact', this)">Transformers & Diffusion Models</li>
+                            <div id="transformers-impact" class="impact-details">
+                                Developed QwenVL-Braille vision-language model at OpenNLP Labs, creating an AI agent for Braille education using transformer architectures.
+                            </div>
+                            
+                            <li onclick="showImpact('lstm-impact', this)">LSTM in RNNs, Reinforcement Learning</li>
+                            <div id="lstm-impact" class="impact-details">
+                                Used LSTM networks for multivariate time series analysis at Berkeley EINR to optimize data cache utilization patterns.
+                            </div>
+                            
+                            <li onclick="showImpact('web-impact', this)">Node.js, React, PostgreSQL</li>
+                            <div id="web-impact" class="impact-details">
+                                Built full-stack platforms like ItsClean using modern web technologies with Google Maps API integration.
+                            </div>
+                            
+                            <li onclick="showImpact('hardware-impact', this)">AWS, OnShape, PCB Design</li>
+                            <div id="hardware-impact" class="impact-details">
+                                Designed and deployed cloud infrastructure and hardware prototypes for research projects.
+                            </div>
                         </ul>
                     </div>
-                    <div class="impact-details" id="technical-impact">
-                        <p>Applied transformers and diffusion models to develop QwenVL-Braille vision-language model at OpenNLP Labs, creating an AI agent for Braille education. Used LSTM networks for multivariate time series analysis at Berkeley EINR to optimize data cache utilization. Built full-stack platforms like ItsClean using Node.js, React and PostgreSQL with Google Maps API integration.</p>
-                    </div>
                 </div>
-                <div class="card" onclick="toggleImpact('research-impact')">
+                
+                <div class="card">
                     <h3 class="card-title">Research Focus</h3>
                     <div class="card-desc">
                         <ul>
-                            <li>Low-resource ML applications</li>
-                            <li>Neural network optimization</li>
-                            <li>Vision-language models</li>
-                            <li>Ethical AI development</li>
+                            <li onclick="showImpact('lowresource-impact', this)">Low-resource ML applications</li>
+                            <div id="lowresource-impact" class="impact-details">
+                                Created personalized AI agent for Braille education targeting underprivileged communities with limited resources.
+                            </div>
+                            
+                            <li onclick="showImpact('optimization-impact', this)">Neural network optimization</li>
+                            <div id="optimization-impact" class="impact-details">
+                                Optimized neural networks through hyperthreading and sparse compression techniques (4th place at Alameda County Science Fair).
+                            </div>
+                            
+                            <li onclick="showImpact('vision-impact', this)">Vision-language models</li>
+                            <div id="vision-impact" class="impact-details">
+                                Developed QwenVL-Braille model combining visual and language processing for accessibility applications.
+                            </div>
+                            
+                            <li onclick="showImpact('ethics-impact', this)">Ethical AI development</li>
+                            <div id="ethics-impact" class="impact-details">
+                                Created Fairify app to recognize bias in ML datasets, winning NYAS Ethical AI competition.
+                            </div>
                         </ul>
                     </div>
-                    <div class="impact-details" id="research-impact">
-                        <p>Developed Fairify app to recognize bias in ML datasets, winning NYAS Ethical AI competition. Published research on adaptive optimization of deep learning models through hardware-software co-design. Created personalized AI agent for Braille education targeting low-resource communities. Optimized neural networks through hyperthreading and sparse compression techniques (4th place at Alameda County Science Fair).</p>
-                    </div>
                 </div>
+                
                 <div class="card">
                     <h3 class="card-title">Education</h3>
                     <div class="card-desc">
@@ -404,20 +442,12 @@
                             Berkeley EINR Internship
                         </h3>
                         <div class="card-desc">
-                            <p><strong>Problem:</strong> Inefficient network utilization in regional data caches</p>
-                            <p><strong>Solution:</strong> Developed multivariate LSTM models to analyze and optimize cache usage patterns</p>
                             <ul>
-                                <li>Analyzed regional data cache utilization patterns</li>
-                                <li>Conducted time series analysis of network traffic</li>
-                                <li>Improved efficiency by 22% through predictive modeling</li>
+                                <li>Developed multivariate LSTM models</li>
+                                <li>Analyzed cache utilization patterns</li>
+                                <li>Improved efficiency by 22%</li>
                             </ul>
                             <span class="sdg-badge">SDG 9: Industry, Innovation</span>
-                        </div>
-                        <div class="card-links">
-                            <span class="card-link">
-                                <i class="fas fa-file"></i>
-                                Research Paper
-                            </span>
                         </div>
                     </div>
                 </a>
@@ -429,21 +459,12 @@
                             OpenNLP Labs Internship
                         </h3>
                         <div class="card-desc">
-                            <p><strong>Problem:</strong> Lack of accessible Braille education tools</p>
-                            <p><strong>Solution:</strong> Developed QwenVL-Braille vision-language model</p>
                             <ul>
-                                <li>Created AI agent for Braille education</li>
-                                <li>Published research on low-resource recognition</li>
-                                <li>Implemented transformer architecture</li>
+                                <li>QwenVL-Braille vision-language model</li>
+                                <li>AI agent for Braille education</li>
+                                <li>Published low-resource recognition</li>
                             </ul>
                             <span class="sdg-badge">SDG 4: Quality Education</span>
-                            <span class="sdg-badge">SDG 10: Reduced Inequalities</span>
-                        </div>
-                        <div class="card-links">
-                            <span class="card-link">
-                                <i class="fas fa-file"></i>
-                                Research Paper
-                            </span>
                         </div>
                     </div>
                 </a>
@@ -455,20 +476,12 @@
                             Neural Network Optimization
                         </h3>
                         <div class="card-desc">
-                            <p><strong>Problem:</strong> Energy inefficiency in deep learning models</p>
-                            <p><strong>Solution:</strong> Hardware-software co-design approach</p>
                             <ul>
-                                <li>Optimized efficiency through hyperthreading</li>
-                                <li>Implemented sparse compression techniques</li>
-                                <li>4th place at Alameda County Science Fair</li>
+                                <li>Hyperthreading efficiency</li>
+                                <li>Sparse compression techniques</li>
+                                <li>4th place Science Fair</li>
                             </ul>
-                            <span class="sdg-badge">SDG 7: Affordable Energy</span>
-                        </div>
-                        <div class="card-links">
-                            <span class="card-link">
-                                <i class="fas fa-file"></i>
-                                Research Paper
-                            </span>
+                            <span class="sdg-badge">SDG 9: Industry, Innovation</span>
                         </div>
                     </div>
                 </a>
@@ -480,12 +493,10 @@
                             IIM Mumbai Internship
                         </h3>
                         <div class="card-desc">
-                            <p><strong>Problem:</strong> Suboptimal stock portfolio performance</p>
-                            <p><strong>Solution:</strong> Financial data analysis with Python</p>
                             <ul>
-                                <li>Optimized stock returns using Sharpe/Treynor tests</li>
-                                <li>Developed time-series forecasting models</li>
-                                <li>Analyzed econometric data patterns</li>
+                                <li>Financial data analysis</li>
+                                <li>Stock return optimization</li>
+                                <li>Time-series forecasting</li>
                             </ul>
                             <span class="sdg-badge">SDG 8: Economic Growth</span>
                         </div>
@@ -509,16 +520,12 @@
                             Aarogya Vardaan
                         </h3>
                         <div class="card-desc">
-                            <p><strong>Problem:</strong> Lack of health insurance access for domestic workers</p>
-                            <p><strong>Solution:</strong> ML portal with multilingual NLP chatbot</p>
                             <ul>
+                                <li>ML portal with NLP chatbot</li>
                                 <li>Presented at UN Headquarters</li>
-                                <li>Provided free insurance to 50+ individuals</li>
-                                <li>$2,000 crowdfunded</li>
-                                <li>6 language support</li>
+                                <li>Provided free insurance</li>
                             </ul>
                             <span class="sdg-badge">SDG 3: Good Health</span>
-                            <span class="sdg-badge">SDG 10: Reduced Inequalities</span>
                         </div>
                         <div class="card-gallery">
                             <img src="av.heic" alt="Aarogya Vardaan">
@@ -534,15 +541,12 @@
                             ItsClean
                         </h3>
                         <div class="card-desc">
-                            <p><strong>Problem:</strong> Lack of accountability for public sanitation</p>
-                            <p><strong>Solution:</strong> Crowdsourced bathroom rating platform</p>
                             <ul>
-                                <li>Built with NodeJS, React, PostgreSQL</li>
-                                <li>Implemented Google Maps API</li>
-                                <li>Launched in 4 cities globally</li>
+                                <li>Crowdsourced rating platform</li>
+                                <li>Built with modern web stack</li>
+                                <li>Launched in 4 cities</li>
                             </ul>
-                            <span class="sdg-badge">SDG 6: Clean Water/Sanitation</span>
-                            <span class="sdg-badge">SDG 11: Sustainable Cities</span>
+                            <span class="sdg-badge">SDG 6: Clean Water</span>
                         </div>
                         <div class="card-gallery">
                             <img src="itscleanwebsite.png" alt="ItsClean Website">
@@ -555,16 +559,13 @@
                     <div class="card has-gallery">
                         <img src="nyas-logo.png" alt="NYAS Fairify" class="card-image">
                         <h3 class="card-title">
-                            <img src="nyas-logo.png" class="nyas-logo" alt="NYAS Logo">
                             Fairify - NYAS
                         </h3>
                         <div class="card-desc">
-                            <p><strong>Problem:</strong> Bias in machine learning datasets</p>
-                            <p><strong>Solution:</strong> Bias detection application</p>
                             <ul>
-                                <li>New York Academy of Sciences (NYAS) project</li>
-                                <li>SQLite and REST API implementation</li>
-                                <li>Won NYAS Ethical AI competition</li>
+                                <li>Bias detection in datasets</li>
+                                <li>SQLite and REST API</li>
+                                <li>Won Ethical AI competition</li>
                             </ul>
                             <span class="sdg-badge">SDG 10: Reduced Inequalities</span>
                         </div>
@@ -582,16 +583,12 @@
                             Celeritas Research Labs
                         </h3>
                         <div class="card-desc">
-                            <p><strong>Problem:</strong> Need for affordable prosthetics and efficient robotics</p>
-                            <p><strong>Solution:</strong> Engineering research and development</p>
                             <ul>
                                 <li>VP of Engineering</li>
-                                <li>Built model prosthetic hand</li>
-                                <li>Developed telemetry dataset with custom API</li>
-                                <li>RC autonomous cars with RL optimization</li>
+                                <li>Prosthetic hand prototype</li>
+                                <li>RL model optimization</li>
                             </ul>
                             <span class="sdg-badge">SDG 9: Industry, Innovation</span>
-                            <span class="sdg-badge">SDG 3: Good Health</span>
                         </div>
                         <div class="card-gallery">
                             <img src="model-hand.png" alt="Prosthetic Hand">
@@ -617,10 +614,9 @@
                     </h3>
                     <div class="card-desc">
                         <ul>
-                            <li>Led Bal Sabha (Children's gathering) at BAPS Temple</li>
-                            <li>Instructed religious texts to 25 members</li>
-                            <li>Conducted 25+ educational sessions</li>
-                            <li>Organized community service initiatives</li>
+                            <li>Led children's educational sessions</li>
+                            <li>Organized community initiatives</li>
+                            <li>25+ instructional sessions</li>
                         </ul>
                     </div>
                     <div class="card-gallery">
@@ -636,10 +632,9 @@
                     </h3>
                     <div class="card-desc">
                         <ul>
-                            <li>Treasurer: Amador Valley Entrepreneurship Club (30+ members)</li>
-                            <li>Secretary: Space and Astronomy Club (30+ members)</li>
-                            <li>Secretary: Emerging Technologies Club (25+ members)</li>
-                            <li>Secretary: Model UN Club (50+ members, multiple awards)</li>
+                            <li>Entrepreneurship Club Treasurer</li>
+                            <li>Space/Astronomy Club Secretary</li>
+                            <li>Model UN award winner</li>
                         </ul>
                     </div>
                     <div class="card-gallery">
@@ -664,9 +659,18 @@
     </footer>
 
     <script>
-        function toggleImpact(id) {
-            const element = document.getElementById(id);
-            element.classList.toggle('show');
+        function showImpact(id, element) {
+            // Hide all impact details first
+            document.querySelectorAll('.impact-details').forEach(detail => {
+                detail.classList.remove('show');
+            });
+            
+            // Show the selected one
+            const detail = document.getElementById(id);
+            detail.classList.add('show');
+            
+            // Scroll to keep it in view
+            detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
         
         // Make entire cards clickable
@@ -674,8 +678,8 @@
             const link = card.closest('.card-link');
             if (link) {
                 card.addEventListener('click', (e) => {
-                    // Don't follow link if clicking on a nested link
-                    if (e.target.tagName === 'A' || e.target.closest('a')) {
+                    // Don't follow link if clicking on a nested link or bullet point
+                    if (e.target.tagName === 'A' || e.target.closest('a') || e.target.tagName === 'LI') {
                         return;
                     }
                     window.open(link.href, '_blank');

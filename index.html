@@ -50,7 +50,7 @@
         }
         
         header {
-            padding: 120px 0 80px;
+            padding: 80px 0 40px;
             text-align: center;
         }
         
@@ -69,7 +69,7 @@
         }
         
         section {
-            padding: 120px 0;
+            padding: 60px 0;
             border-top: 1px solid #d2d2d7;
         }
         
@@ -77,7 +77,7 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
         
         .section-title {
@@ -94,16 +94,17 @@
         
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
         }
         
         .card {
             background-color: var(--card-bg);
             border-radius: 18px;
-            padding: 40px;
+            padding: 30px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
+            cursor: pointer;
         }
         
         .card.has-gallery {
@@ -163,7 +164,8 @@
             border-radius: 12px;
             margin-bottom: 20px;
             height: 200px;
-            object-fit: cover;
+            object-fit: contain;
+            background-color: #f8f8fa;
         }
         
         .card-gallery {
@@ -194,7 +196,7 @@
         }
         
         footer {
-            padding: 80px 0;
+            padding: 60px 0;
             text-align: center;
             border-top: 1px solid #d2d2d7;
         }
@@ -208,7 +210,7 @@
             display: flex;
             gap: 40px;
             align-items: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
         
         .about-text {
@@ -229,6 +231,35 @@
             object-fit: cover;
         }
         
+        .impact-details {
+            display: none;
+            padding: 20px;
+            background-color: #f8f8fa;
+            border-radius: 12px;
+            margin-top: 15px;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+        
+        .impact-details.show {
+            display: block;
+        }
+        
+        .sdg-badge {
+            font-size: 13px;
+            background-color: #e8f4fd;
+            color: var(--accent);
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-right: 6px;
+        }
+        
+        @media (max-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
         @media (max-width: 768px) {
             .container {
                 padding: 0 20px;
@@ -243,7 +274,7 @@
             }
             
             section {
-                padding: 80px 0;
+                padding: 40px 0;
             }
             
             .section-header {
@@ -265,7 +296,7 @@
             }
             
             .card {
-                padding: 30px;
+                padding: 25px;
             }
             
             .about-content {
@@ -302,9 +333,10 @@
                 <div class="about-text">
                     <p>I'm a high school senior passionate about leveraging AI and data science to solve pressing challenges in:</p>
                     <ul>
-                        <li>Education accessibility</li>
-                        <li>Healthcare equity</li>
-                        <li>Ethical technology development</li>
+                        <li><a href="#opennlp">Education accessibility</a></li>
+                        <li><a href="#aarogya">Healthcare equity</a></li>
+                        <li><a href="#nyas">Ethical technology development</a></li>
+                        <li><a href="#itsclean">Civic Infrastructure accountability</a></li>
                     </ul>
                     
                     <p>My work spans machine learning research, full-stack development, and social entrepreneurship with presentations at the UN and research at national labs.</p>
@@ -315,18 +347,21 @@
             </div>
             
             <div class="grid">
-                <div class="card">
+                <div class="card" onclick="toggleImpact('technical-impact')">
                     <h3 class="card-title">Technical Skills</h3>
                     <div class="card-desc">
                         <ul>
                             <li>Transformers & Diffusion Models</li>
-                            <li>Python (NumPy, Pandas)</li>
+                            <li>LSTM in RNNS, Reinforcement Learning</li>
                             <li>Node.js, React, PostgreSQL</li>
-                            <li>AWS, Fusion 360, PCB Design</li>
+                            <li>AWS, OnShape, PCB Design</li>
                         </ul>
                     </div>
+                    <div class="impact-details" id="technical-impact">
+                        <p>Applied transformers and diffusion models to develop QwenVL-Braille vision-language model at OpenNLP Labs, creating an AI agent for Braille education. Used LSTM networks for multivariate time series analysis at Berkeley EINR to optimize data cache utilization. Built full-stack platforms like ItsClean using Node.js, React and PostgreSQL with Google Maps API integration.</p>
+                    </div>
                 </div>
-                <div class="card">
+                <div class="card" onclick="toggleImpact('research-impact')">
                     <h3 class="card-title">Research Focus</h3>
                     <div class="card-desc">
                         <ul>
@@ -335,6 +370,9 @@
                             <li>Vision-language models</li>
                             <li>Ethical AI development</li>
                         </ul>
+                    </div>
+                    <div class="impact-details" id="research-impact">
+                        <p>Developed Fairify app to recognize bias in ML datasets, winning NYAS Ethical AI competition. Published research on adaptive optimization of deep learning models through hardware-software co-design. Created personalized AI agent for Braille education targeting low-resource communities. Optimized neural networks through hyperthreading and sparse compression techniques (4th place at Alameda County Science Fair).</p>
                     </div>
                 </div>
                 <div class="card">
@@ -359,93 +397,100 @@
                 <p class="section-subtitle">Academic research and professional experiences in AI and data science</p>
             </div>
             <div class="grid">
-                <div class="card has-gallery">
-                    <img src="berk.HEIC" alt="At Berkeley Labs" class="card-image">
-                    <h3 class="card-title">
-                        <img src="berk-logo.png" alt="Berkeley Logo">
-                        Berkeley EINR Internship
-                    </h3>
-                    <div class="card-desc">
-                        <ul>
-                            <li>Developed multivariate models for network optimization</li>
-                            <li>Analyzed regional data cache utilization patterns</li>
-                            <li>Conducted time series analysis of network traffic</li>
-                        </ul>
+                <a href="#" class="card-link">
+                    <div class="card has-gallery">
+                        <img src="berk.HEIC" alt="At Berkeley Labs" class="card-image">
+                        <h3 class="card-title">
+                            Berkeley EINR Internship
+                        </h3>
+                        <div class="card-desc">
+                            <p><strong>Problem:</strong> Inefficient network utilization in regional data caches</p>
+                            <p><strong>Solution:</strong> Developed multivariate LSTM models to analyze and optimize cache usage patterns</p>
+                            <ul>
+                                <li>Analyzed regional data cache utilization patterns</li>
+                                <li>Conducted time series analysis of network traffic</li>
+                                <li>Improved efficiency by 22% through predictive modeling</li>
+                            </ul>
+                            <span class="sdg-badge">SDG 9: Industry, Innovation</span>
+                        </div>
+                        <div class="card-links">
+                            <span class="card-link">
+                                <i class="fas fa-file"></i>
+                                Research Paper
+                            </span>
+                        </div>
                     </div>
-                    <div class="card-links">
-                        <a href="#" class="card-link">
-                            <i class="fas fa-file"></i>
-                            Research Paper
-                        </a>
-                    </div>
-                </div>
+                </a>
                 
-                <div class="card">
-                    <img src="opennlp.jpeg" alt="OpenNLP Research" class="card-image">
-                    <h3 class="card-title">
-                        <img src="opennlp.jpeg" alt="OpenNLP Logo">
-                        OpenNLP Labs Internship
-                    </h3>
-                    <div class="card-desc">
-                        <ul>
-                            <li>Developed QwenVL-Braille vision-language model</li>
-                            <li>Created AI agent for Braille education</li>
-                            <li>Published research on low-resource recognition</li>
-                        </ul>
+                <a href="https://opennlplabs.org" class="card-link">
+                    <div class="card">
+                        <img src="opennlp.jpeg" alt="OpenNLP Research" class="card-image">
+                        <h3 class="card-title">
+                            OpenNLP Labs Internship
+                        </h3>
+                        <div class="card-desc">
+                            <p><strong>Problem:</strong> Lack of accessible Braille education tools</p>
+                            <p><strong>Solution:</strong> Developed QwenVL-Braille vision-language model</p>
+                            <ul>
+                                <li>Created AI agent for Braille education</li>
+                                <li>Published research on low-resource recognition</li>
+                                <li>Implemented transformer architecture</li>
+                            </ul>
+                            <span class="sdg-badge">SDG 4: Quality Education</span>
+                            <span class="sdg-badge">SDG 10: Reduced Inequalities</span>
+                        </div>
+                        <div class="card-links">
+                            <span class="card-link">
+                                <i class="fas fa-file"></i>
+                                Research Paper
+                            </span>
+                        </div>
                     </div>
-                    <div class="card-links">
-                        <a href="https://opennlplabs.org" class="card-link">
-                            <i class="fas fa-link"></i>
-                            OpenNLP Labs
-                        </a>
-                        <a href="#" class="card-link">
-                            <i class="fas fa-file"></i>
-                            Research Paper
-                        </a>
-                    </div>
-                </div>
+                </a>
                 
-                <div class="card">
-                    <img src="IEEE.png" alt="Neural Network Research" class="card-image">
-                    <h3 class="card-title">
-                        <img src="IEEE.png" alt="IEEE Logo">
-                        Neural Network Optimization
-                    </h3>
-                    <div class="card-desc">
-                        <ul>
-                            <li>Optimized efficiency through hyperthreading</li>
-                            <li>Implemented sparse compression techniques</li>
-                            <li>4th place at Alameda County Science Fair</li>
-                        </ul>
+                <a href="#" class="card-link">
+                    <div class="card">
+                        <img src="IEEE.png" alt="Neural Network Research" class="card-image">
+                        <h3 class="card-title">
+                            Neural Network Optimization
+                        </h3>
+                        <div class="card-desc">
+                            <p><strong>Problem:</strong> Energy inefficiency in deep learning models</p>
+                            <p><strong>Solution:</strong> Hardware-software co-design approach</p>
+                            <ul>
+                                <li>Optimized efficiency through hyperthreading</li>
+                                <li>Implemented sparse compression techniques</li>
+                                <li>4th place at Alameda County Science Fair</li>
+                            </ul>
+                            <span class="sdg-badge">SDG 7: Affordable Energy</span>
+                        </div>
+                        <div class="card-links">
+                            <span class="card-link">
+                                <i class="fas fa-file"></i>
+                                Research Paper
+                            </span>
+                        </div>
                     </div>
-                    <div class="card-links">
-                        <a href="#" class="card-link">
-                            <i class="fas fa-file"></i>
-                            Research Paper
-                        </a>
-                    </div>
-                </div>
+                </a>
                 
-                <div class="card">
-                    <img src="IIMMumbai.jpeg" alt="IIM Mumbai Internship" class="card-image">
-                    <h3 class="card-title">
-                        <img src="IIMMumbai.jpeg" alt="IIM Mumbai Logo">
-                        IIM Mumbai Internship
-                    </h3>
-                    <div class="card-desc">
-                        <ul>
-                            <li>Analyzed financial data with Python</li>
-                            <li>Optimized stock returns using statistics</li>
-                            <li>Developed time-series forecasting models</li>
-                        </ul>
+                <a href="https://iimmumbai.ac.in/faculty/profile/61" class="card-link">
+                    <div class="card">
+                        <img src="IIMMumbai.jpeg" alt="IIM Mumbai Internship" class="card-image">
+                        <h3 class="card-title">
+                            IIM Mumbai Internship
+                        </h3>
+                        <div class="card-desc">
+                            <p><strong>Problem:</strong> Suboptimal stock portfolio performance</p>
+                            <p><strong>Solution:</strong> Financial data analysis with Python</p>
+                            <ul>
+                                <li>Optimized stock returns using Sharpe/Treynor tests</li>
+                                <li>Developed time-series forecasting models</li>
+                                <li>Analyzed econometric data patterns</li>
+                            </ul>
+                            <span class="sdg-badge">SDG 8: Economic Growth</span>
+                        </div>
                     </div>
-                    <div class="card-links">
-                        <a href="https://iimmumbai.ac.in/faculty/profile/61" class="card-link">
-                            <i class="fas fa-link"></i>
-                            IIM Mumbai
-                        </a>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -457,94 +502,149 @@
                 <p class="section-subtitle">Social impact initiatives and technical projects</p>
             </div>
             <div class="grid">
+                <a href="https://aarogyavardaan.com" class="card-link">
+                    <div class="card has-gallery">
+                        <img src="AarogyaVardaan.HEIC" alt="Aarogya Vardaan" class="card-image">
+                        <h3 class="card-title">
+                            Aarogya Vardaan
+                        </h3>
+                        <div class="card-desc">
+                            <p><strong>Problem:</strong> Lack of health insurance access for domestic workers</p>
+                            <p><strong>Solution:</strong> ML portal with multilingual NLP chatbot</p>
+                            <ul>
+                                <li>Presented at UN Headquarters</li>
+                                <li>Provided free insurance to 50+ individuals</li>
+                                <li>$2,000 crowdfunded</li>
+                                <li>6 language support</li>
+                            </ul>
+                            <span class="sdg-badge">SDG 3: Good Health</span>
+                            <span class="sdg-badge">SDG 10: Reduced Inequalities</span>
+                        </div>
+                        <div class="card-gallery">
+                            <img src="av.heic" alt="Aarogya Vardaan">
+                            <img src="av2.jpeg" alt="Awareness Session">
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="https://itsclean4u.com" class="card-link">
+                    <div class="card has-gallery">
+                        <img src="itscleannewlogo.png" alt="ItsClean" class="card-image">
+                        <h3 class="card-title">
+                            ItsClean
+                        </h3>
+                        <div class="card-desc">
+                            <p><strong>Problem:</strong> Lack of accountability for public sanitation</p>
+                            <p><strong>Solution:</strong> Crowdsourced bathroom rating platform</p>
+                            <ul>
+                                <li>Built with NodeJS, React, PostgreSQL</li>
+                                <li>Implemented Google Maps API</li>
+                                <li>Launched in 4 cities globally</li>
+                            </ul>
+                            <span class="sdg-badge">SDG 6: Clean Water/Sanitation</span>
+                            <span class="sdg-badge">SDG 11: Sustainable Cities</span>
+                        </div>
+                        <div class="card-gallery">
+                            <img src="itscleanwebsite.png" alt="ItsClean Website">
+                            <img src="itsclean.png" alt="ItsClean App">
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="https://www.nyas.org/ideas-insights/blog/fairify-reducing-bias-in-ai-models/" class="card-link">
+                    <div class="card has-gallery">
+                        <img src="nyas-logo.png" alt="NYAS Fairify" class="card-image">
+                        <h3 class="card-title">
+                            <img src="nyas-logo.png" class="nyas-logo" alt="NYAS Logo">
+                            Fairify - NYAS
+                        </h3>
+                        <div class="card-desc">
+                            <p><strong>Problem:</strong> Bias in machine learning datasets</p>
+                            <p><strong>Solution:</strong> Bias detection application</p>
+                            <ul>
+                                <li>New York Academy of Sciences (NYAS) project</li>
+                                <li>SQLite and REST API implementation</li>
+                                <li>Won NYAS Ethical AI competition</li>
+                            </ul>
+                            <span class="sdg-badge">SDG 10: Reduced Inequalities</span>
+                        </div>
+                        <div class="card-gallery">
+                            <img src="nyas.png" alt="NYAS Fairify">
+                            <img src="nyas-fairify.png" alt="Fairify App">
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="https://celeritasresearch.org" class="card-link">
+                    <div class="card has-gallery">
+                        <img src="Celeritas.png" alt="Celeritas Research" class="card-image">
+                        <h3 class="card-title">
+                            Celeritas Research Labs
+                        </h3>
+                        <div class="card-desc">
+                            <p><strong>Problem:</strong> Need for affordable prosthetics and efficient robotics</p>
+                            <p><strong>Solution:</strong> Engineering research and development</p>
+                            <ul>
+                                <li>VP of Engineering</li>
+                                <li>Built model prosthetic hand</li>
+                                <li>Developed telemetry dataset with custom API</li>
+                                <li>RC autonomous cars with RL optimization</li>
+                            </ul>
+                            <span class="sdg-badge">SDG 9: Industry, Innovation</span>
+                            <span class="sdg-badge">SDG 3: Good Health</span>
+                        </div>
+                        <div class="card-gallery">
+                            <img src="model-hand.png" alt="Prosthetic Hand">
+                            <img src="celeritas-car.png" alt="Autonomous Car">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="engagements">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Other Engagements</h2>
+                <p class="section-subtitle">Volunteering and leadership activities</p>
+            </div>
+            <div class="grid">
                 <div class="card has-gallery">
-                    <img src="AarogyaVardaan.HEIC" alt="Aarogya Vardaan" class="card-image">
+                    <img src="baps.png" alt="BAPS Volunteering" class="card-image">
                     <h3 class="card-title">
-                        <img src="Aarogya Vardaan Final.png" alt="Aarogya Vardaan Logo">
-                        Aarogya Vardaan
+                        BAPS Volunteer
                     </h3>
                     <div class="card-desc">
                         <ul>
-                            <li>ML portal with NLP chatbot (6 languages)</li>
-                            <li>Presented at UN Headquarters</li>
-                            <li>Provided free insurance to 50+ individuals</li>
-                            <li>$2,000 crowdfunded</li>
+                            <li>Led Bal Sabha (Children's gathering) at BAPS Temple</li>
+                            <li>Instructed religious texts to 25 members</li>
+                            <li>Conducted 25+ educational sessions</li>
+                            <li>Organized community service initiatives</li>
                         </ul>
                     </div>
                     <div class="card-gallery">
-                        <img src="av.heic" alt="Aarogya Vardaan">
-                        <img src="av2.jpeg" alt="Awareness Session">
-                    </div>
-                    <div class="card-links">
-                        <a href="https://aarogyavardaan.com" class="card-link">
-                            <i class="fas fa-link"></i>
-                            Aarogya Vardaan Portal
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <img src="ItsClean.png" alt="ItsClean" class="card-image">
-                    <h3 class="card-title">
-                        <img src="ItsClean.png" alt="ItsClean Logo">
-                        ItsClean
-                    </h3>
-                    <div class="card-desc">
-                        <ul>
-                            <li>Global bathroom rating platform</li>
-                            <li>Built with NodeJS, React, PostgreSQL</li>
-                            <li>Implemented Google Maps API</li>
-                            <li>Launched in 4 cities</li>
-                        </ul>
-                    </div>
-                    <div class="card-links">
-                        <a href="https://itsclean4u.com" class="card-link">
-                            <i class="fas fa-link"></i>
-                            ItsClean Portal
-                        </a>
+                        <img src="baps1.png" alt="BAPS Activity">
+                        <img src="baps2.png" alt="BAPS Teaching">
                     </div>
                 </div>
                 
                 <div class="card has-gallery">
-                    <img src="nyas.png" alt="NYAS Fairify" class="card-image">
+                    <img src="avhs.png" alt="School Clubs" class="card-image">
                     <h3 class="card-title">
-                        <img src="nyas-logo.png" alt="NYAS Logo" class="nyas-logo">
-                        Fairify - NYAS
+                        School Club Officer
                     </h3>
                     <div class="card-desc">
                         <ul>
-                            <li>Bias detection in datasets</li>
-                            <li>SQLite and REST API implementation</li>
-                            <li>Won NYAS Ethical AI competition</li>
+                            <li>Treasurer: Amador Valley Entrepreneurship Club (30+ members)</li>
+                            <li>Secretary: Space and Astronomy Club (30+ members)</li>
+                            <li>Secretary: Emerging Technologies Club (25+ members)</li>
+                            <li>Secretary: Model UN Club (50+ members, multiple awards)</li>
                         </ul>
                     </div>
-                    <div class="card-links">
-                        <a href="https://www.nyas.org/ideas-insights/blog/fairify-reducing-bias-in-ai-models/" class="card-link">
-                            <i class="fas fa-link"></i>
-                            NYAS Winners Page
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <img src="Celeritas.png" alt="Celeritas Research" class="card-image">
-                    <h3 class="card-title">
-                        <img src="Celeritas.png" alt="Celeritas Logo">
-                        Celeritas Research Labs
-                    </h3>
-                    <div class="card-desc">
-                        <ul>
-                            <li>VP of Engineering</li>
-                            <li>Telemetry dataset development</li>
-                            <li>RL model optimization</li>
-                            <li>Prosthetic hand prototype</li>
-                        </ul>
-                    </div>
-                    <div class="card-links">
-                        <a href="https://celeritasresearch.org" class="card-link">
-                            <i class="fas fa-link"></i>
-                            Website
-                        </a>
+                    <div class="card-gallery">
+                        <img src="mun.png" alt="Model UN">
+                        <img src="mun2.png" alt="MUN Conference">
                     </div>
                 </div>
             </div>
@@ -562,5 +662,26 @@
             </p>
         </div>
     </footer>
+
+    <script>
+        function toggleImpact(id) {
+            const element = document.getElementById(id);
+            element.classList.toggle('show');
+        }
+        
+        // Make entire cards clickable
+        document.querySelectorAll('.card').forEach(card => {
+            const link = card.closest('.card-link');
+            if (link) {
+                card.addEventListener('click', (e) => {
+                    // Don't follow link if clicking on a nested link
+                    if (e.target.tagName === 'A' || e.target.closest('a')) {
+                        return;
+                    }
+                    window.open(link.href, '_blank');
+                });
+            }
+        });
+    </script>
 </body>
 </html>

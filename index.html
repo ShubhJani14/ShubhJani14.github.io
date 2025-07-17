@@ -167,7 +167,11 @@
         .card-desc li:hover {
             color: var(--accent);
         }
-        
+.full-width-image {
+    grid-column: span 2;
+    height: 200px; /* optional: increase height for full-width look */
+    object-fit: cover;
+}        
         .card-image {
             width: 100%;
             border-radius: 12px;
@@ -350,10 +354,10 @@
                         <li><a href="#nyas">Ethical technology development</a></li>
                         <li><a href="#itsclean">Civic Infrastructure accountability</a></li>
                     </ul>
-                    
+                    <br>
                     <p>My work spans machine learning research, full-stack development, and social entrepreneurship with presentations at the UN and research at national labs.</p>
                     
-                    <p>Leadership roles include Secretary of Space/Astronomy Club, Treasurer of Entrepreneurship Club, and Co-Founder of ItsClean sanitation platform.</p>
+                    <p>Leadership roles include Founder of Aarogya Vardaan, Co-Founder and Chief Technology Officer of ItsClean, Head of Engineering at Celeritas Research Labs  and Secretary of Space & Astronomy Club, Entrepreneurship Club and Emergin Technologies Club</p>
                 </div>
                 <img src="shubh.jpg" alt="Shubh Jani" class="about-image">
             </div>
@@ -437,15 +441,15 @@
             <div class="grid">
                 <a href="#" class="card-link">
                     <div class="card has-gallery">
-                        <img src="berk.HEIC" alt="At Berkeley Labs" class="card-image">
+                        <img src="berk-logo.png" alt="At Berkeley Labs" class="card-image">
                         <h3 class="card-title">
                             Berkeley EINR Internship
                         </h3>
                         <div class="card-desc">
                             <ul>
-                                <li>Developed multivariate LSTM models</li>
-                                <li>Analyzed cache utilization patterns</li>
-                                <li>Improved efficiency by 22%</li>
+                                <li>Developed solution to nefficient network utilization in regional data caches</li>
+                                <li>Engineering multivariate LSTM models to analyze and optimize cache usage pattern</li>
+                                <li>Conducted time series analysis of network traffic and created optimal database</li>
                             </ul>
                             <span class="sdg-badge">SDG 9: Industry, Innovation</span>
                         </div>
@@ -460,9 +464,9 @@
                         </h3>
                         <div class="card-desc">
                             <ul>
-                                <li>QwenVL-Braille vision-language model</li>
-                                <li>AI agent for Braille education</li>
-                                <li>Published low-resource recognition</li>
+                                <li>Developed solution for lack of accessible Braille education tools</li>
+                                <li>Developed QwenVL-Braille vision-language model</li>
+                                <li>Created personalized AI agent for Braille education with transformer architecture</li>
                             </ul>
                             <span class="sdg-badge">SDG 4: Quality Education</span>
                         </div>
@@ -473,15 +477,14 @@
                     <div class="card">
                         <img src="IEEE.png" alt="Neural Network Research" class="card-image">
                         <h3 class="card-title">
-                            Neural Network Optimization
+                            Neural Network Optimization Research
                         </h3>
                         <div class="card-desc">
                             <ul>
-                                <li>Hyperthreading efficiency</li>
-                                <li>Sparse compression techniques</li>
-                                <li>4th place Science Fair</li>
+                                <li>Tackled problem of energy inefficiency in deep learning models </li>
+                                <li>Researched and constructed a hardware-software co-design approach</li>
+                                <li>Optimized efficiency through harmonic use of algorithms and hardware chanegs</li>
                             </ul>
-                            <span class="sdg-badge">SDG 9: Industry, Innovation</span>
                         </div>
                     </div>
                 </a>
@@ -494,9 +497,9 @@
                         </h3>
                         <div class="card-desc">
                             <ul>
-                                <li>Financial data analysis</li>
-                                <li>Stock return optimization</li>
-                                <li>Time-series forecasting</li>
+                                <li>Analyzec finance & econometric data</li>
+                                <li>Optimizestock returns with Sharpe/Treynor tests and Python</li>
+                                <li>Monitored and emulated econometric data patterns g</li>
                             </ul>
                             <span class="sdg-badge">SDG 8: Economic Growth</span>
                         </div>
@@ -521,9 +524,9 @@
                         </h3>
                         <div class="card-desc">
                             <ul>
-                                <li>ML portal with NLP chatbot</li>
+                                <li>Engineered ML portal with multilingual NLP chatbot to solve problem of lack of health insurance access for domestic workers</li>
                                 <li>Presented at UN Headquarters</li>
-                                <li>Provided free insurance</li>
+                                <li>Provided free insurance to 50+ individuals, $2000 crowdfunded</li>
                             </ul>
                             <span class="sdg-badge">SDG 3: Good Health</span>
                         </div>
@@ -542,15 +545,14 @@
                         </h3>
                         <div class="card-desc">
                             <ul>
-                                <li>Crowdsourced rating platform</li>
-                                <li>Built with modern web stack</li>
-                                <li>Launched in 4 cities</li>
+                                <li>Addressed lack of accountability for public sanitation by developing crowdsourced bathroom rating platform</li>
+                                <li>Launched in 4 cities globally</li>
+                                <li>Built with NodeJS, React, PostgreSQL</li>
                             </ul>
                             <span class="sdg-badge">SDG 6: Clean Water</span>
                         </div>
                         <div class="card-gallery">
-                            <img src="itscleanwebsite.png" alt="ItsClean Website">
-                            <img src="itsclean.png" alt="ItsClean App">
+                            <img src="itscleanwebsite.png" alt="ItsClean Website"  class="full-width-image">
                         </div>
                     </div>
                 </a>
@@ -559,19 +561,18 @@
                     <div class="card has-gallery">
                         <img src="nyas-logo.png" alt="NYAS Fairify" class="card-image">
                         <h3 class="card-title">
-                            Fairify - NYAS
+                            Fairify - New York Academy of Sciences
                         </h3>
                         <div class="card-desc">
                             <ul>
-                                <li>Bias detection in datasets</li>
-                                <li>SQLite and REST API</li>
+                                <li>Created app for bias detection in datasets to reduce bias in machine learning datasets</li>
+                                <li>Used SQLite and REST API</li>
                                 <li>Won Ethical AI competition</li>
                             </ul>
                             <span class="sdg-badge">SDG 10: Reduced Inequalities</span>
                         </div>
                         <div class="card-gallery">
-                            <img src="nyas.png" alt="NYAS Fairify">
-                            <img src="nyas-fairify.png" alt="Fairify App">
+                            <img src="nyas.png" alt="NYAS Fairify" class="full-width-image">
                         </div>
                     </div>
                 </a>
@@ -584,15 +585,13 @@
                         </h3>
                         <div class="card-desc">
                             <ul>
-                                <li>VP of Engineering</li>
-                                <li>Prosthetic hand prototype</li>
-                                <li>RL model optimization</li>
+                                <li>Engineered RC autonomous cars </li>
+                                <li>Devised reinforcement learning model optimized for energy efficiency </li>
+                                <li>Built model prosthetic handn</li>
                             </ul>
-                            <span class="sdg-badge">SDG 9: Industry, Innovation</span>
                         </div>
                         <div class="card-gallery">
-                            <img src="model-hand.png" alt="Prosthetic Hand">
-                            <img src="celeritas-car.png" alt="Autonomous Car">
+                            <img src="model-hand.png" alt="Prosthetic Hand"  class="full-width-image">
                         </div>
                     </div>
                 </a>
